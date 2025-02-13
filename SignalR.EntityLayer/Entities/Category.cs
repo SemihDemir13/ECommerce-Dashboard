@@ -1,9 +1,15 @@
-﻿namespace SignalR.EntityLayer.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SignalR.EntityLayer.Entities
 {
     public class Category
     {
-        public int CategoryID { get; set; }
-        public  string Name { get; set; }
+        [Key]
+        public int CategoryId { get; set; }
+        public  string CategoryName { get; set; }
         public bool status {  get; set; }   
+
+        public List<Product> Products { get; set; } 
     }
+    
 }

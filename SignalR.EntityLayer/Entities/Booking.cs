@@ -1,8 +1,12 @@
-﻿namespace SignalR.EntityLayer.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SignalR.EntityLayer.Entities
 {
     public class Booking
     {
-        public int BookingID {  get; set; } 
+        [Key]
+
+        public int BookingId {  get; set; } 
         public string Name {  get; set; }
         public string Phone { get; set; }
         public string Mail { get; set; }

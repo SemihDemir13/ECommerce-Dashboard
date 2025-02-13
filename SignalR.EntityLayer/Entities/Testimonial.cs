@@ -1,10 +1,13 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations;
+
 namespace SignalR.EntityLayer.Entities
 {
     public class Testimonial
     {
-        public int TestimonialID {  get; set; } 
+        [Key]
+        public int TestimonialId {  get; set; } 
         public string Name {  get; set; }   
         public string Title { get; set; }
         public string Comment { get; set; }
