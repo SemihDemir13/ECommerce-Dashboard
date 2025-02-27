@@ -13,10 +13,12 @@ builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", builder =>
     {
-        builder.AllowAnyHeader()
-        .AllowAnyMethod()
+        builder.AllowAnyHeader() //Her türlü HTTP baþlýðý kabul edilir.
+        .AllowAnyMethod()//  GET, POST, PUT, DELETE gibi tüm HTTP metotlarýna izin verilir.  
         .SetIsOriginAllowed((host) => true)
+        .AllowAnyOrigin()
         .AllowCredentials();
+        
     });
 });
 builder.Services.AddSignalR();
