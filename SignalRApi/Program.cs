@@ -16,8 +16,8 @@ builder.Services.AddCors(opt =>
         builder.AllowAnyHeader() //Her türlü HTTP baþlýðý kabul edilir.
         .AllowAnyMethod()//  GET, POST, PUT, DELETE gibi tüm HTTP metotlarýna izin verilir.  
         .SetIsOriginAllowed((host) => true)
-        .AllowAnyOrigin()
-        .AllowCredentials();
+        .AllowAnyOrigin();
+        
         
     });
 });
@@ -60,6 +60,12 @@ builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
 
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+
+builder.Services.AddScoped<IOrderDetailService, OrderDetailManager>();  
+builder.Services.AddScoped<IOrderDetailDal, EfOrderDetailDal>();
+
+builder.Services.AddScoped<IOrderService, OrderManager>();
+builder.Services.AddScoped<IOrderDal, EfOrderDal>();
 
 
 var app = builder.Build();
