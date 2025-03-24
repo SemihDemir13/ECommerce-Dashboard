@@ -58,6 +58,30 @@ namespace SignalR.DataAccessLayer.EntityFramework
             return values;
         }
 
+        public decimal ProductAvgPriceByHamburger()
+        {
+            using var context = new SignalRContext();
+
+            var categoryId = context.Categorys
+                .Where(y => y.CategoryName == "Hamburger")
+                .Select(z => z.CategoryId)
+                .FirstOrDefault();
+
+           
+
+            var prices = context.Products
+                .Where(x => x.CategoryId == categoryId)
+                .Select(w => w.Price)
+                .ToList();
+
+          
+
+            var avgPrice = prices.Average();
+            Console.WriteLine($"Hamburger Ortalama Fiyatı: {avgPrice}");
+
+            return avgPrice;
+        }
+
         public decimal ProductPriveAvg()
         {
             using var context = new SignalRContext();
